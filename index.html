@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorteio dos Santos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .saint {
+      font-size: 18px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>📿 Seus santos para este ano</h1>
+  <div class="saint" id="saint1"></div>
+  <div class="saint" id="saint2"></div>
+  <div class="footer">
+    Reze, conheça a história e peça a intercessão 🙏
+  </div>
+</div>
+
+<script>
+  const santos = [
+    "São Domingos Sávio",
+    "Beato Carlo Acutis",
+    "Santa Maria Goretti",
+    "Santa Teresinha do Menino Jesus",
+    "São Luís Gonzaga",
+    "São José Sánchez del Río",
+    "Beata Chiara Luce Badano",
+    "Beata Sandra Sabattini",
+    "Beato Pier Giorgio Frassati",
+    "Santa Bernadette Soubirous",
+    "Santa Joana d’Arc",
+    "Beato Nunzio Sulprizio",
+    "Santa Teresa dos Andes",
+    "Beato Ceferino Namuncurá",
+    "Beata Antonietta Meo",
+    "Beato Rolando Rivi",
+    "Santa Gianna Beretta Molla",
+    "São Rafael Arnáiz Barón",
+    "Beata Pierina Morosini",
+    "Beato Carlo Gnocchi"
+  ];
+
+  function sortearDois() {
+    let indices = [];
+    while (indices.length < 2) {
+      let r = Math.floor(Math.random() * santos.length);
+      if (!indices.includes(r)) indices.push(r);
+    }
+    return [santos[indices[0]], santos[indices[1]]];
+  }
+
+  const resultado = sortearDois();
+  document.getElementById("saint1").innerText = resultado[0];
+  document.getElementById("saint2").innerText = resultado[1];
+</script>
+
+</body>
+</html>
